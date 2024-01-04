@@ -30,6 +30,23 @@ public class Item {
         this.count = count;
     }
 
+    private KindOfItem KindOfItem;
 
+    public org.cynamonowa.KindOfItem getKindOfItem() {
+        return KindOfItem;
+    }
 
+    public void setKindOfItem(org.cynamonowa.KindOfItem kindOfItem) {
+        KindOfItem = kindOfItem;
+    }
+    private Room Room;
+
+    public org.cynamonowa.Room getRoom() {
+        return Room;
+    }
+
+    public void setRoom(org.cynamonowa.Room room) {
+        Room = room;
+    }
 }
+
