@@ -1,4 +1,7 @@
 package org.cynamonowa;
+import java.util.ArrayList;
+
+
 
 public class Item {
     private String name;
@@ -69,4 +72,10 @@ public class Item {
     }
     public Item(){}
 
+
+    ArrayList<Item> ShopList = new ArrayList<>();
+    Item induction = new Item("induction_Bosh", "media_markt", 1299, 1);
+    Item table = new Item("dinner_table", "ikea", 799, 1);
+    Item oven = new Item("Oven_Bosh", "media_markt", 1399, 1);
+    Item chair = new Item("dinner_chairs", "ikea", 199,4);
 }
