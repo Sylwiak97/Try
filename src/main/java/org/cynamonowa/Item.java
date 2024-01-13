@@ -5,6 +5,13 @@ import java.util.ArrayList;
 
 public class Item {
     private String name;
+    private double cost;
+    private String shop;
+    private int count;
+    private Room room;
+    private KindOfItem kindOfItem;
+
+
 
     String getName() {
         return this.name;
@@ -14,7 +21,6 @@ public class Item {
         this.name = name;
     }
 
-    private double cost;
 
     double getCost() {
         return this.cost;
@@ -24,8 +30,6 @@ public class Item {
         this.cost = cost;
     }
 
-    private String shop;
-
     String getShop() {
         return this.shop;
     }
@@ -33,8 +37,6 @@ public class Item {
     void setShop(String shop) {
         this.shop = shop;
     }
-
-    private int count;
 
     int getCount() {
         return this.count;
@@ -44,38 +46,35 @@ public class Item {
         this.count = count;
     }
 
-    private KindOfItem KindOfItem;
 
-    public org.cynamonowa.KindOfItem getKindOfItem() {
-        return KindOfItem;
+
+    public KindOfItem getKindOfItem() {
+        return kindOfItem;
     }
 
     public void setKindOfItem(KindOfItem kindOfItem) {
-        KindOfItem = kindOfItem;
+        this.kindOfItem = kindOfItem;
     }
 
-    private Room Room;
 
-    public org.cynamonowa.Room getRoom() {
-        return Room;
+
+    public Room getRoom() {
+        return room;
     }
 
     public void setRoom(Room room) {
-        Room = room;
+        this.room = room;
     }
 
-    public Item(String name, String shop, double cost, int count) {
+    public Item(String name, String shop, double cost, int count, KindOfItem kindOfItem, Room room) {
         this.name = name;
         this.shop = shop;
         this.count = count;
         this.cost = cost;
+        this.kindOfItem = kindOfItem;
+        this.room = room;
     }
     public Item(){}
 
 
-    ArrayList<Item> ShopList = new ArrayList<>();
-    Item induction = new Item("induction_Bosh", "media_markt", 1299, 1);
-    Item table = new Item("dinner_table", "ikea", 799, 1);
-    Item oven = new Item("Oven_Bosh", "media_markt", 1399, 1);
-    Item chair = new Item("dinner_chairs", "ikea", 199,4);
 }
