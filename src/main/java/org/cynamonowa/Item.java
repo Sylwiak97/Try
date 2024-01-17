@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Item {
     private String name;
-    private double cost;
+    private int cost;
     private String shop;
     private int count;
     private Room room;
@@ -13,36 +13,36 @@ public class Item {
 
 
 
-    String getName() {
+    public String getName() {
         return this.name;
     }
 
-    void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
 
-    double getCost() {
+    public int getCost() {
         return this.cost;
     }
 
-    void setCost(double cost) {
+    public void setCost(int cost) {
         this.cost = cost;
     }
 
-    String getShop() {
+    public String getShop() {
         return this.shop;
     }
 
-    void setShop(String shop) {
+    public void setShop(String shop) {
         this.shop = shop;
     }
 
-    int getCount() {
+    public int getCount() {
         return this.count;
     }
 
-    void setCount(int count) {
+    public void setCount(int count) {
         this.count = count;
     }
 
@@ -66,7 +66,7 @@ public class Item {
         this.room = room;
     }
 
-    public Item(String name, String shop, double cost, int count, KindOfItem kindOfItem, Room room) {
+    public Item(String name, String shop, int cost, int count, KindOfItem kindOfItem, Room room) {
         this.name = name;
         this.shop = shop;
         this.count = count;
@@ -75,6 +75,19 @@ public class Item {
         this.room = room;
     }
     public Item(){}
+
+
+    @Override
+    public String toString() {
+        return  name + '\'' +
+                ", cost=" + cost +
+                ", shop='" + shop + '\'' +
+                  count + "szt." +
+                ", what is this=" + kindOfItem +
+                ", where you will place it=" + (room != null ? room : "Brak");
+
+
+    }
 
 
 }
