@@ -82,12 +82,25 @@ public class Item {
         return  name + '\'' +
                 ", cost=" + cost +
                 ", shop='" + shop + '\'' +
-                  count + "szt." +
+                "," + count + "pc." + '\'' +
                 ", what is this=" + kindOfItem +
                 ", where you will place it=" + (room != null ? room : "Brak");
 
 
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Item item = (Item) obj;
+        return Double.compare(item.cost, cost) == 0 && name.equals(item.name);
+    }
+
+//    @Override
+//    public int hashCode() {
+//        return Object.Item
+//    }
 
 
 }
