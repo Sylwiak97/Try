@@ -89,18 +89,7 @@ public class Item {
 
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Item item = (Item) obj;
-        return Double.compare(item.cost, cost) == 0 && name.equals(item.name);
-    }
 
-//    @Override
-//    public int hashCode() {
-//        return Object.Item
-//    }
 
 
 }
