@@ -34,10 +34,12 @@ public class ItemService {
     }
 
     //Cost in Ikea
-    public List<Item> filteredbyCostinIkeaNList() {
+    public  double filteredbyCostinIkeaNList() {
         return itemDao.getShopList().stream()
                 .filter(item -> item.getShop().equalsIgnoreCase("Ikea"))
-                .collect(Collectors.toList());
+                .collect(Collectors.summingDouble(Item::getCost));
+
+
     }
 
     // tools from Castorama
@@ -62,9 +64,9 @@ public class ItemService {
         allUsedItems.addAll(filterByIkeaList());
         allUsedItems.addAll(filteredbyKitchenList());
         allUsedItems.addAll(filteredby1000PLNList());
-        allUsedItems.addAll(filteredbyCostinIkeaNList());
         allUsedItems.addAll(filteredbyCountMoreThanOneList());
         return allFilteredItems();
+
     }
 
 

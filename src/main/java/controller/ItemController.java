@@ -17,7 +17,7 @@ public class ItemController {
                 + itemService.filteredby1000PLNList());
 
         System.out.println("In Ikea you will spend: "
-                + itemService.filteredbyCostinIkeaNList().stream().mapToDouble(Item::getCost).sum());
+                + itemService.filteredbyCostinIkeaNList());
 
         System.out.println("Tools which you will buy in Castorama: "
                 + itemService.filteredbyCastoramaList());
