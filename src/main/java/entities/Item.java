@@ -1,6 +1,4 @@
-package org.cynamonowa;
-import java.util.ArrayList;
-
+package entities;
 
 
 public class Item {
@@ -10,7 +8,6 @@ public class Item {
     private int count;
     private Room room;
     private KindOfItem kindOfItem;
-
 
 
     public String getName() {
@@ -47,7 +44,6 @@ public class Item {
     }
 
 
-
     public KindOfItem getKindOfItem() {
         return kindOfItem;
     }
@@ -55,7 +51,6 @@ public class Item {
     public void setKindOfItem(KindOfItem kindOfItem) {
         this.kindOfItem = kindOfItem;
     }
-
 
 
     public Room getRoom() {
@@ -74,12 +69,14 @@ public class Item {
         this.kindOfItem = kindOfItem;
         this.room = room;
     }
-    public Item(){}
+
+    public Item() {
+    }
 
 
     @Override
     public String toString() {
-        return  name + '\'' +
+        return name + '\'' +
                 ", cost=" + cost +
                 ", shop='" + shop + '\'' +
                 "," + count + "pc." + '\'' +
@@ -88,8 +85,6 @@ public class Item {
 
 
     }
-
-
 
 
 }

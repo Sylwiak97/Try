@@ -1,4 +1,4 @@
-package org.cynamonowa;
+package entities;
 
 public enum KindOfItem {
     FURNITURE,
