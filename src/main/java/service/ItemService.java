@@ -4,9 +4,11 @@ import dao.ItemDao;
 import entities.Item;
 import entities.KindOfItem;
 import entities.Room;
-import java.util.*;
+
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class ItemService {
@@ -27,17 +29,17 @@ public class ItemService {
     }
 
     // cost is more han 1000 PLN
-    public List<Item> filteredby1000PLNList() {
+    public List<Item> filteredby1000PLNList(double price) {
         return itemDao.getShopList().stream()
-                .filter(item -> item.getCost() > 1000)
+                .filter(item -> item.getCost() >  price)
                 .collect(Collectors.toList());
     }
 
     //Cost in Ikea
-    public  double filteredbyCostinIkeaNList() {
+    public double filteredbyCostinIkeaNList() {
         return itemDao.getShopList().stream()
                 .filter(item -> item.getShop().equalsIgnoreCase("Ikea"))
-                .collect(Collectors.summingDouble(Item::getCost));
+                .mapToDouble(Item::getCost).sum();
 
 
     }
@@ -58,22 +60,20 @@ public class ItemService {
     }
 
 
-    public HashSet<Item> allFilteredItems(){
-        HashSet<Item> allUsedItems = new HashSet<>();
-        allUsedItems.addAll(filteredbyCastoramaList());
-        allUsedItems.addAll(filterByIkeaList());
-        allUsedItems.addAll(filteredbyKitchenList());
-        allUsedItems.addAll(filteredby1000PLNList());
-        allUsedItems.addAll(filteredbyCountMoreThanOneList());
-        return allFilteredItems();
+//    public HashSet<Item> allFilteredItems() {
+//        HashSet<Item> allUsedItems = new HashSet<>();
+//        allUsedItems.addAll(filteredbyCastoramaList());
+//        allUsedItems.addAll(filterByIkeaList());
+//        allUsedItems.addAll(filteredbyKitchenList());
+//        allUsedItems.addAll(filteredby1000PLNList(1000));
+//        allUsedItems.addAll(filteredbyCountMoreThanOneList());
+//        return allUsedItems;
+//
+//    }
 
-    }
-
-
-
-
-
-
+//    public List<Item> restList() {
+//        List<Item> restItemsList = new ArrayList<>(itemDao.getShopList());
+//
+//    }
 
 }
-
