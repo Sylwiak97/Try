@@ -1,5 +1,5 @@
 package controller;
-import entities.Item;
+
 import entities.KindOfItem;
 import entities.Room;
 import service.ItemService;
@@ -28,6 +28,8 @@ public class ItemController {
         System.out.println("Items which you will buy more than one piece: "
                 + itemService.filteredbyCountMoreThanOneList(1));
 
+        System.out.println("Entire list "
+                + itemService.filterallItems());
 
 
     }
