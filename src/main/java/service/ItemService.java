@@ -55,7 +55,7 @@ public class ItemService {
                 .collect(Collectors.toList());
     }
     public List<Item> filterallItems() {
-       itemDao.addItemToList(new Item("small_screw", "OBI", 1, 5, KindOfItem.TOOL, Room.DAMIANS_CAVE));
+       itemDao.addItemToList(new Item("small_screw", "OBI", 1, 6, KindOfItem.TOOL, Room.DAMIANS_CAVE));
        return itemDao.getShopList();
     }
 

@@ -16,7 +16,7 @@ public class ItemDao {
 
     public List<Item> addItemToList(final Item item) {
         if (checkIfItemAlreadyExists(item))  {
-            addItemtoCount(item);
+            addItemToCount(item);
             System.out.println("Item added to count.");
 
         } else {
@@ -27,7 +27,6 @@ public class ItemDao {
     }
 
 
-
     private static boolean checkIfItemAlreadyExists(Item item) {
       for (Item listItem : itemList) {
             if (listItem.getName().equals(item.getName())) {
@@ -36,15 +35,12 @@ public class ItemDao {
         }
         return false;
     }
-    private void addItemtoCount(Item item){
-        int currentCount = item.getCount();
-        int afterAddCount = ++currentCount;
-        for (Item listItem : itemList)
-            if (item.equals(listItem.getName())) {
-                item.setCount(afterAddCount);
+    private void addItemToCount(Item item) {
+        for (Item listItem : itemList) {
+            int afterAddCount = listItem.getCount() + item.getCount();
+               listItem.setCount(afterAddCount);
             }
-    }
-
+        }
 
 
 
