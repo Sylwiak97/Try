@@ -60,7 +60,7 @@ public class ItemService {
 
     }
         public List<Item> updateItems(){
-            itemDao.updateItem(1, (new Item("floors", "OBI", 1, 6, KindOfItem.TOOL, Room.DAMIANS_CAVE)));
+            itemDao.updateItem(99, (new Item("floors", "OBI", 1, 6, KindOfItem.TOOL, Room.KITCHEN)));
             return itemDao.getShopList();
         }
 

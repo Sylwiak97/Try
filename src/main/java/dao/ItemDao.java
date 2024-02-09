@@ -46,7 +46,12 @@ public class ItemDao {
                   oldItem.setName(item.getName());
                   oldItem.setShop(item.getShop());
                   oldItem.setCost(item.getCost());
-
+                  oldItem.setCount(item.getCount());
+                  oldItem.setRoom(item.getRoom());
+                  oldItem.setKindOfItem(item.getKindOfItem());
+            System.out.println("Item updated");
+        }else{
+            System.out.println("There is no subject with such an index");
         }
 
         return null;
