@@ -31,6 +31,9 @@ public class ItemController {
         System.out.println("Entire list "
                 + itemService.filterallItems());
 
+        System.out.println("Updated list"
+                + itemService.updateItems());
+
 
     }
 }

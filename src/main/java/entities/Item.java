@@ -44,12 +44,15 @@ public class Item {
     }
 
 
-    public KindOfItem getKindOfItem() {
-        return kindOfItem;
+    public KindOfItem getKindOfItem(KindOfItem kindOfItem) {
+        return this.kindOfItem;
     }
+   public void setKindOfItem(KindOfItem kindOfItem) {
+    this.kindOfItem = kindOfItem;
+}
 
-    public void setKindOfItem(KindOfItem kindOfItem) {
-        this.kindOfItem = kindOfItem;
+    public  KindOfItem getKindOfItem() {
+    return kindOfItem;
     }
 
 

@@ -44,7 +44,7 @@ public class ItemService {
     public List<Item> filteredbyCastoramaList(final String name, KindOfItem kindOfItem) {
         return itemDao.getShopList().stream()
                 .filter(item -> item.getShop().equalsIgnoreCase(name))
-                .filter(item -> item.getKindOfItem().equals(kindOfItem))
+                .filter(item -> item.getKindOfItem(item.getKindOfItem(KindOfItem.TOOL)).equals(kindOfItem))
                 .collect(Collectors.toList());
     }
 
@@ -55,8 +55,15 @@ public class ItemService {
                 .collect(Collectors.toList());
     }
     public List<Item> filterallItems() {
-       itemDao.addItemToList(new Item("small_screw", "OBI", 1, 6, KindOfItem.TOOL, Room.DAMIANS_CAVE));
-       return itemDao.getShopList();
+        itemDao.addItemToList(new Item("small_screw", "OBI", 1, 6, KindOfItem.TOOL, Room.DAMIANS_CAVE));
+        return itemDao.getShopList();
+
     }
+        public List<Item> updateItems(){
+            itemDao.updateItem(1, (new Item("floors", "OBI", 1, 6, KindOfItem.TOOL, Room.DAMIANS_CAVE)));
+            return itemDao.getShopList();
+        }
+
+
 
 }
