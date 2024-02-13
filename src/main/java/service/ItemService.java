@@ -54,15 +54,24 @@ public class ItemService {
                 .filter(item -> item.getCount() > count)
                 .collect(Collectors.toList());
     }
-    public List<Item> filterallItems() {
-        itemDao.addItemToList(new Item("small_screw", "OBI", 1, 6, KindOfItem.TOOL, Room.DAMIANS_CAVE));
+    public List<Item> listWithAddedItems(final Item item) {
+        itemDao.addItemToList(item);
         return itemDao.getShopList();
 
     }
-        public List<Item> updateItems(){
-            itemDao.updateItem(99, (new Item("floors", "OBI", 1, 6, KindOfItem.TOOL, Room.KITCHEN)));
+        public List<Item> updateItems(final int index, Item item){
+            itemDao.updateItem(index, item);
             return itemDao.getShopList();
         }
+    public List<Item> deleteItem(final int index){
+        itemDao.deleteItemAll(index);
+        return itemDao.getShopList();
+    }
+
+    public List<Item> deletePiece(final int index, int count){
+        itemDao.deleteItemFromCount(index, count);
+        return itemDao.getShopList();
+    }
 
 
 

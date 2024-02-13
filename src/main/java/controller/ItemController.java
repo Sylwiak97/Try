@@ -1,5 +1,6 @@
 package controller;
 
+import entities.Item;
 import entities.KindOfItem;
 import entities.Room;
 import service.ItemService;
@@ -29,10 +30,18 @@ public class ItemController {
                 + itemService.filteredbyCountMoreThanOneList(1));
 
         System.out.println("Entire list "
-                + itemService.filterallItems());
+                + itemService.listWithAddedItems(new Item("small_screw", "OBI", 1, 6, KindOfItem.TOOL, Room.DAMIANS_CAVE)));
 
         System.out.println("Updated list"
-                + itemService.updateItems());
+                + itemService.updateItems(1, new Item("floors", "OBI", 1, 6, KindOfItem.TOOL, Room.KITCHEN)));
+
+        System.out.println("Deleted list"
+                + itemService.deleteItem(1));
+
+        System.out.println("List after deletion of piece"
+                + itemService.deletePiece(0,8));
+
+
 
 
     }

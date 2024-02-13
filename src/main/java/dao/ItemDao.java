@@ -27,8 +27,19 @@ public class ItemDao {
         return null;
     }
 
+    public List<Item> deleteItemAll(final int index) {
+            if (index >= 0 && index < getShopList().size()) {
+               Item deletedItem = itemList.get(index);
+                itemList.remove(deletedItem);
+                System.out.println("Item deleted.");
 
-    private static boolean checkIfItemAlreadyExists(Item item) {
+        } else {
+            System.out.println("There is no such a Item");
+        }
+        return null;
+    }
+
+    public static boolean checkIfItemAlreadyExists(final Item item) {
         for (Item listItem : itemList) {
             if (listItem.getName().equals(item.getName())) {
                 return true;
@@ -38,7 +49,7 @@ public class ItemDao {
     }
 
 
-    public List<Item> updateItem(int index, Item item) {
+    public List<Item> updateItem(final int index, Item item) {
       if(checkIfItemAlreadyExists(item)){
       }
         if (index >= 0 && index < getShopList().size()) {
@@ -56,13 +67,26 @@ public class ItemDao {
 
         return null;
     }
-            private void addItemToCount (Item item){
+            public void addItemToCount (final Item item){
                 for (Item listItem : itemList) {
                     int afterAddCount = listItem.getCount() + item.getCount();
                     listItem.setCount(afterAddCount);
                 }
             }
 
+    public void deleteItemFromCount(final int index, int count) {
+        for (Item listItem : itemList) {
+            Item deletedItem = itemList.get(index);
+            if (count <= deletedItem.getCount()) {
+                int afterDeletion = deletedItem.getCount() - count;
+                deletedItem.setCount(afterDeletion);
+
+            } else {
+                itemList.remove(deletedItem);
+                System.out.println("Because you wanted to delete a greater or equal pieces of item, the entire item was deleted from the list");
+            } break;
+        }
+    }
 
             public static List<Item> setupItemList() {
                 Item induction = new Item("induction_Bosh", "media_markt", 1299, 1, KindOfItem.OTHER, Room.KITCHEN);
